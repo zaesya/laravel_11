@@ -10,9 +10,19 @@ class DepartmenController extends Controller
 {
     public function index()
     {
-        return view('departmen', [
+        $data = [
             'title' => "Departmen",
             'departmens' => Departmen::with(['grade_students', 'students'])->get()
-        ]);
+        ];
+
+        // Cek apakah request dari admin
+        if (request()->is('admin/*')) {
+            return view('admin.departmen_admin', [
+                'title' => "Departments Management",
+                'departmens' => Departmen::with(['grade_students', 'students'])->get()
+            ]);
+        }
+
+        return view('departmen', $data);  // View untuk user
     }
 }

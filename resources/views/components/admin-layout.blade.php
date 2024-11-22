@@ -15,10 +15,8 @@
     <x-admin-sidebar></x-admin-sidebar>
 
     <main class="p-4 md:ml-64 h-auto pt-20">
-        <div class="mb-4">
-        </div>
-
         <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
+            {{ $slot }}
         </div>
     </main>
 </div>

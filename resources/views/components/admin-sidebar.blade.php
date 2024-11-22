@@ -21,7 +21,7 @@
     <ul class="space-y-2">
       <!-- Dashboard -->
       <li>
-        <a href="{{ url('/admin/dashboard') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+        <a href="{{ url('/home') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20">
             <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
             <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
@@ -46,10 +46,10 @@
             <a href="{{ url('/admin/student') }}" class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Students</a>
           </li>
           <li>
-            <a href="{{ url('/admin/departmen') }}" class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Departments</a>
+            <a href="{{ url('/admin/grade_student') }}" class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Grades</a>
           </li>
           <li>
-            <a href="{{ url('/admin/grade_student') }}" class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Grades</a>
+            <a href="{{ url('/admin/departmen') }}" class="flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Departments</a>
           </li>
         </ul>
       </li>

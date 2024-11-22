@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        Student Management
+        Departments Management
     </x-slot>
     <div class="bg-white rounded-lg shadow">
         <div class="p-4 border-b">

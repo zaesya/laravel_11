@@ -9,9 +9,9 @@
             <div class="ml-10 flex items-baseline space-x-4">
                 <x-nav-link href="/home" :active="request()->is('home')">Home</x-nav-link>
                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-                <x-nav-link href="/student" :active="request()->is('student')">Student</x-nav-link>
-                <x-nav-link href="/grade_student" :active="request()->is('grade_student')">Grade</x-nav-link>
-                <x-nav-link href="/departmen" :active="request()->is('departmen')">Departmen</x-nav-link>
+                <x-nav-link href="/student" :active="request()->is('student')">Students</x-nav-link>
+                <x-nav-link href="/grade_student" :active="request()->is('grade_student')">Grades</x-nav-link>
+                <x-nav-link href="/departmen" :active="request()->is('departmen')">Departments</x-nav-link>
                 <x-nav-link href="/admin_dashboard" :active="request()->is('admin.dashboard')">Admin Dashboard</x-nav-link>
             </div>
           </div>
@@ -74,12 +74,12 @@
         <div class="md:hidden" x-show="isOpen" id="mobile-menu">
           <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <x-nav-link-mobile href="/home" :active="request()->is('home')">home</x-nav-link-mobile>
-            <x-nav-link-mobile href="/contact" :active="request()->is('contact')">contact</x-nav-link-mobile>
-            <x-nav-link-mobile href="/student" :active="request()->is('student')">student</x-nav-link-mobile>
-            <x-nav-link-mobile href="/grade_student" :active="request()->is('grade_student')">grade</x-nav-link-mobile>
-            <x-nav-link-mobile href="/departmen" :active="request()->is('departmen')">departmen</x-nav-link-mobile>
-            <x-nav-link-mobile href="/admin_dashboard" :active="request()->is('departmen')">departmen</x-nav-link-mobile>
+            <x-nav-link-mobile href="/home" :active="request()->is('home')">Home</x-nav-link-mobile>
+            <x-nav-link-mobile href="/contact" :active="request()->is('contact')">Contact</x-nav-link-mobile>
+            <x-nav-link-mobile href="/student" :active="request()->is('student')">Student</x-nav-link-mobile>
+            <x-nav-link-mobile href="/grade_student" :active="request()->is('grade_student')">Grade</x-nav-link-mobile>
+            <x-nav-link-mobile href="/departmen" :active="request()->is('departmen')">Departmen</x-nav-link-mobile>
+            <x-nav-link-mobile href="/admin_dashboard" :active="request()->is('departmen')">Admin Dashboard</x-nav-link-mobile>
           </div>
           <div class="border-t border-gray-700 pb-3 pt-4">
             <div class="flex items-center px-5">

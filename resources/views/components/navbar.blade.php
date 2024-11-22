@@ -12,6 +12,7 @@
                 <x-nav-link href="/student" :active="request()->is('student')">Student</x-nav-link>
                 <x-nav-link href="/grade_student" :active="request()->is('grade_student')">Grade</x-nav-link>
                 <x-nav-link href="/departmen" :active="request()->is('departmen')">Departmen</x-nav-link>
+                <x-nav-link href="/admin_dashboard" :active="request()->is('admin.dashboard')">Admin Dashboard</x-nav-link>
             </div>
           </div>
         </div><div class="hidden md:block">
@@ -78,6 +79,7 @@
             <x-nav-link-mobile href="/student" :active="request()->is('student')">student</x-nav-link-mobile>
             <x-nav-link-mobile href="/grade_student" :active="request()->is('grade_student')">grade</x-nav-link-mobile>
             <x-nav-link-mobile href="/departmen" :active="request()->is('departmen')">departmen</x-nav-link-mobile>
+            <x-nav-link-mobile href="/admin_dashboard" :active="request()->is('departmen')">departmen</x-nav-link-mobile>
           </div>
           <div class="border-t border-gray-700 pb-3 pt-4">
             <div class="flex items-center px-5">

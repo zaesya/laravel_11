@@ -1,8 +1,7 @@
 <x-admin-layout>
-    <x-slot:title>
-        {{ $title }}
-    </x-slot:title>
-
+    <x-slot name="title">
+        Student Management
+    </x-slot>
     <div class="bg-white rounded-lg shadow">
         <div class="p-4 border-b">
             <h2 class="text-xl font-semibold">Departments Management</h2>

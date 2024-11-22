@@ -2,15 +2,14 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class AdminLayout extends Component
 {
     public $title;
+    public $slot;  
 
-    public function __construct($title = 'Admin Dashboard')
+    public function __construct($title = null)
     {
         $this->title = $title;
     }

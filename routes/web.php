@@ -14,13 +14,15 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/contact',[ContactController::class, 'index']);
-Route::get('/student',[StudentController::class, 'index'])->name('students.index');
 Route::get('/add-data', [StudentController::class, 'addData'])->name('add.data');
-Route::get('/grade_student', [Grade_studentController::class,'index']);
 Route::get('/admin_dashboard', [AdminController::class,'index']);
 
-// Route untuk user
+//User
 Route::get('/departmen', [DepartmenController::class, 'index']);
+Route::get('/grade_student', [Grade_studentController::class,'index']);
+Route::get('/student',[StudentController::class, 'index'])->name('students.index');
 
-// Route untuk admin
+//Admin
 Route::get('/admin/departmen', [DepartmenController::class, 'index']);
+Route::get('/admin/grade_student', [Grade_studentController::class,'index']);
+Route::get('admin/student',[StudentController::class, 'index']);

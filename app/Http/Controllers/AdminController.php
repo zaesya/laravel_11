@@ -15,9 +15,6 @@ class AdminController extends Controller
             'students' => Student::all(),
             'departments' => Departmen::all(),
             'grades' => Grade_student::all(),
-            'total_students' => Student::count(),
-            'total_departments' => Departmen::count(),
-            'total_grades' => Grade_student::count(),
         ];
 
         return view('components.admin-layout', $data);

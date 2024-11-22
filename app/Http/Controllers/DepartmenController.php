@@ -15,14 +15,10 @@ class DepartmenController extends Controller
             'departmens' => Departmen::with(['grade_students', 'students'])->get()
         ];
 
-        // Cek apakah request dari admin
         if (request()->is('admin/*')) {
-            return view('admin.departmen_admin', [
-                'title' => "Departments Management",
-                'departmens' => Departmen::with(['grade_students', 'students'])->get()
-            ]);
+            return view('admin.departmen_admin', $data);
         }
 
-        return view('departmen', $data);  // View untuk user
+        return view('departmen', $data);
     }
 }

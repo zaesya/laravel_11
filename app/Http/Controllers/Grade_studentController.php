@@ -8,10 +8,14 @@ class Grade_studentController extends Controller
 {
     public function index()
     {
-        $grade_students = Grade_student::with('students')->get();
-        return view('grade_student', [
-            'title' => "Grade",
-            'grade_students' => $grade_students
-        ]);
+        $data = [
+            'title' => "Grade student",
+            'grade_students' => Grade_student::with('students')->get()
+        ];
+
+        if(request()->is('admin/*')){
+            return view('admin/grade_student_admin', $data);
+        }
+        return view('grade_student', $data);
     }
 }

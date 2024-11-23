@@ -20,6 +20,8 @@
         <main class="p-4 md:ml-64 h-auto pt-20">
             @isset($slot)
                 {{ $slot }}
+            @else
+                <x-main></x-main>
             @endisset
         </main>
     </div>

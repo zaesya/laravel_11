@@ -73,7 +73,7 @@
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" placeholder="Enter address">
         <div class="button-group">
-        <a href="/students" class="btn btn-cancel">Cancel</a>
+        <a href="/student" class="btn btn-cancel">Cancel</a>
         <button type="submit" class="btn btn-submit">Submit</button>
         </div>
 

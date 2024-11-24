@@ -4,8 +4,11 @@
     </x-slot>
 
     <div class="bg-white rounded-lg shadow">
-        <div class="p-4 border-b">
+        <div class="p-4 border-b flex justify-between items-center">
             <h2 class="text-xl font-semibold">Students Management</h2>
+            <a href="{{ route('add.data') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                + Add New Data
+            </a>
         </div>
         <div class="p-4">
             <div class="relative overflow-x-auto">

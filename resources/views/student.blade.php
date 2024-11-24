@@ -34,37 +34,42 @@
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
-            cursor: move;
-            margin-top: 20px;
+            cursor: pointer;  /* Mengubah dari 'move' ke 'pointer' */
+            margin-bottom: 20px;
         }
 
         .btn:hover{
             background-color: #0056b3;
         }
     </style>
-    <h2>DATA STUDENT</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Grade</th>
-                <th>Departmen ID</th>
-                <th>Email</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-            <tbody>@foreach ( $students as $student)
+    <div>
+        <h2>DATA STUDENT</h2>
+           <div>
+            <a href="{{ route('add.data') }}" class="btn">+ Add New Data</a>
+        </div>
+        <table>
+            <thead>
                 <tr>
-                    <td>{{$student['id']}}</td>
-                    <td>{{$student['name']}}</td>
-                    <td>{{$student->grade_student->name}}</td>
-                    <td>{{$student->grade_student->departmen->name}}</td>
-                    <td>{{$student['email']}}</td>
-                    <td>{{$student['address']}}</td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Departmen ID</th>
+                    <th>Email</th>
+                    <th>Address</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <a href="{{ route('add.data') }}" class="btn">+ Add New Data</a>
+            </thead>
+            <tbody>
+                @foreach ($students as $student)
+                    <tr>
+                        <td>{{$student->id}}</td>
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->grade_student->name}}</td>
+                        <td>{{$student->grade_student->departmen->name}}</td>
+                        <td>{{$student->email}}</td>
+                        <td>{{$student->address}}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </x-layout>

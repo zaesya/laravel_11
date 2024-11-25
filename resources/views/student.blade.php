@@ -20,33 +20,13 @@
             padding: 10px;
             text-align: left;
         }
-
+        
         th{
             background-color: #f2f2f2;
-        }
-
-        .btn{
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;  /* Mengubah dari 'move' ke 'pointer' */
-            margin-bottom: 20px;
-        }
-
-        .btn:hover{
-            background-color: #0056b3;
         }
     </style>
     <div>
         <h2>DATA STUDENT</h2>
-           <div>
-            <a href="{{ route('add.data') }}" class="btn">+ Add New Data</a>
-        </div>
         <table>
             <thead>
                 <tr>

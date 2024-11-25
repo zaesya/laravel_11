@@ -1,81 +1,93 @@
-<x-layout>
-    <x-slot:title>
-       {{ $title }}
-    </x-slot:title>
-    <style>
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
+<x-admin-layout>
+    <x-slot name="title">
+        Add New Student
+    </x-slot>
 
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        .button-group{
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-cancel {
-            background-color: #6c757d;
-        }
-
-        .btn-cancel:hover{
-            background-color: #5a6268;
-        }
-
-        .btn-sumbit:hover {
-            background-color: #0056b3;
-        }
-    </style>
-
-    <h3 style="text-align: center;">Add New Student</h3>
-
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter student's name">
-
-        <label for="grade">Grade:</label>
-        <input type="text" id="grade" name="grade" placeholder="Enter grade">
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter email address">
-
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" placeholder="Enter address">
-        <div class="button-group">
-        <a href="/student" class="btn btn-cancel">Cancel</a>
-        <button type="submit" class="btn btn-submit">Submit</button>
+    <div class="bg-white rounded-lg shadow">
+        <div class="p-4 border-b flex justify-between items-center">
+            <h2 class="text-xl font-semibold">Add New Student</h2>
         </div>
 
-    </form>
-</x-layout>
+        <div class="p-4">
+            <form class="max-w-3xl mx-auto">
+                <!-- Name Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="name">
+                        Name
+                    </label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500"
+                           placeholder="Enter student's name">
+                </div>
+
+                <!-- Grade Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="grade">
+                        Grade
+                    </label>
+                    <select id="grade_student"
+                            name="grade_student_id"
+                            class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500">
+                        <option value="">Select Grade</option>
+                        @foreach($grade_students as $grade_student)
+                            <option value="{{ $grade_student->id }}">{{ $grade_student->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Department Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="department">
+                        Department
+                    </label>
+                    <select id="department"
+                            name="department_id"
+                            class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500">
+                        <option value="">Select Department</option>
+                        @foreach($departmens as $department)
+                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="email">
+                        Email
+                    </label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500"
+                           placeholder="Enter email address">
+                </div>
+
+                <!-- Address Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="address">
+                        Address
+                    </label>
+                    <textarea id="address"
+                             name="address"
+                             rows="3"
+                             class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500"
+                             placeholder="Enter address"></textarea>
+                </div>
+
+                <!-- Button Group -->
+                <div class="flex justify-end space-x-2 mt-6">
+                    <a href='admin/student'
+                       class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</x-admin-layout>

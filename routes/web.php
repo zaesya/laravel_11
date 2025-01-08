@@ -23,6 +23,12 @@ Route::get('/grade_student', [Grade_studentController::class,'index']);
 Route::get('/student',[StudentController::class, 'index'])->name('students.index');
 
 //Admin
-Route::get('/admin/departmen', [DepartmenController::class, 'index']);
-Route::get('/admin/grade_student', [Grade_studentController::class,'index']);
-Route::get('admin/student',[StudentController::class, 'index']);
+Route::prefix('admin')->group(function () {
+    Route::get('/departmen', [DepartmenController::class, 'index']);
+    Route::get('/grade_student', [Grade_studentController::class,'index']);
+    Route::get('/student',[StudentController::class, 'index'])->name('admin.student.index');
+    Route::post('/create', [StudentController::class, 'create'])->name('admin.create');
+    Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('admin.edit');
+    Route::put('/update/{id}', [StudentController::class, 'update'])->name('admin.update');
+    Route::delete('/delete/{id}', [StudentController::class, 'destroy'])->name('admin.delete');
+});

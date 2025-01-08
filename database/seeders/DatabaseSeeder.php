@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        Student::factory(100)
+        Student::factory(20)
             ->withConsistentGradeAndDepartment()
             ->create();
     }

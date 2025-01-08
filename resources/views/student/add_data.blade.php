@@ -11,7 +11,6 @@
         <div class="p-4">
             <form action="{{ route('admin.create') }}" method="POST" class="max-w-3xl mx-auto">
                 @csrf
-                <!-- Name Field -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="name">
                         Name
@@ -50,8 +49,6 @@
                            class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500"
                            placeholder="Enter email address">
                 </div>
-
-                <!-- Address Field -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="address">
                         Address
@@ -62,8 +59,6 @@
                              class="w-full px-6 py-3 border rounded bg-gray-50 text-sm text-gray-500 focus:outline-none focus:border-blue-500"
                              ></textarea>
                 </div>
-
-                <!-- Button Group -->
                 <div class="flex justify-end space-x-2 mt-6">
                     <a href="{{ url('admin/student') }}"
                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">

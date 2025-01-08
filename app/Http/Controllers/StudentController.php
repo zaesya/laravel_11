@@ -54,7 +54,6 @@ class StudentController extends Controller
                     ->with('success', 'Student created successfully');
 }
 
-    // Add edit method to show the edit form
     public function edit($id)
     {
         $student = Student::findOrFail($id);
@@ -67,7 +66,7 @@ class StudentController extends Controller
         ]);
     }
 
-    // Add update method to handle the edit form submission
+    // Update method to handle the edit from form cuy
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -90,7 +89,6 @@ class StudentController extends Controller
                         ->with('success', 'Student updated successfully');
     }
 
-    // Add destroy method to handle deletion
     public function destroy($id)
     {
         $student = Student::findOrFail($id);

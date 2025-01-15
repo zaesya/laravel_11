@@ -3,13 +3,35 @@
         Students Management
     </x-slot>
 
-    <div class="bg-white rounded-lg shadow">
-        <div class="p-4 border-b flex justify-between items-center">
-            <h2 class="text-xl font-semibold">Students Management</h2>
-            <a href="{{ route('add.data') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+    <div class="p-4 border-b flex justify-between items-center">
+        <h2 class="text-xl font-semibold">Students Management</h2>
+        <div class="flex gap-4">
+
+            <form action="{{ route('admin.student.index') }}" method="GET" class="flex gap-2">
+                <input type="text"
+                       name="search"
+                       value="{{ request('search') }}"
+                       placeholder="Search by name"
+                       class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit"
+                        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                    Search
+                </button>
+
+                @if(request('search'))
+                    <a href="{{ route('admin.student.index')}}"
+                        class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                          Clear
+                    </a>
+                @endif
+            </form>
+
+            <a href="{{ route('add.data') }}"
+               class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
                 + Add New Data
             </a>
         </div>
+    </div>
 
         @if(session('success'))
     <div id="flash-success" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative m-4" role="alert">
@@ -50,7 +72,7 @@
                     <tbody>
                         @foreach ($students as $student)
                             <tr class="bg-white border-b">
-                                <td class="px-6 py-4">{{$student->id}}</td>
+                                <td class="px-6 py-4">{{$loop->iteration }}</td>
                                 <td class="px-6 py-4">{{$student->name}}</td>
                                 <td class="px-6 py-4">{{$student->grade_student->name}}</td>
                                 <td class="px-6 py-4">{{$student->grade_student->departmen->name}}</td>

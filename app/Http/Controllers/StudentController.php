@@ -7,20 +7,40 @@ use App\Models\Grade_student;
 use App\Models\Departmen;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\search;
+
 class StudentController extends Controller
 {
     public function index()
     {
         if(request()->is('admin/*')) {
+            $search = request('search');
+
+            $students = Student::with(['grade_student', 'departmen'])
+                ->when($search, function($query) use ($search) {
+                    $query->where(function($q) use ($search) {
+                        $q->where('name', 'like', "%{$search}%")
+                          ->orWhere('email', 'like', "%{$search}%")
+                          ->orWhereHas('grade_student', function($q) use ($search) {
+                              $q->where('name', 'like', "%{$search}%");
+                          })
+                          ->orWhereHas('grade_student.departmen', function($q) use ($search) {
+                              $q->where('name', 'like', "%{$search}%");
+                          });
+                    });
+                })
+                ->orderBy('created_at', 'desc')
+                ->get();
+
             return view('admin.student_admin', [
                 'title' => 'Student Management',
-                'students' => Student::with(['grade_student', 'departmen'])->get()
+                'students' => $students
             ]);
         }
 
         return view('student', [
             'title' => 'Student',
-            'students' => Student::with(['grade_student', 'departmen'])->get()
+            'students' => Student::with(['grade_student', 'departmen'])->orderBy('created_at', 'desc')->get()
         ]);
     }
 

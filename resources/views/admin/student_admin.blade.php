@@ -10,6 +10,29 @@
                 + Add New Data
             </a>
         </div>
+
+        @if(session('success'))
+    <div id="flash-success" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative m-4" role="alert">
+        <span class="block sm:inline">{{ session('success') }}</span>
+    </div>
+    <script>
+        setTimeout(function() {
+            document.getElementById('flash-success').remove();
+        }, 3000);
+    </script>
+@endif
+
+@if(session('error'))
+    <div id="flash-error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative m-4" role="alert">
+        <span class="block sm:inline">{{ session('error') }}</span>
+    </div>
+    <script>
+        setTimeout(function() {
+            document.getElementById('flash-error').remove();
+        }, 3000);
+    </script>
+@endif
+
         <div class="p-4">
             <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500">

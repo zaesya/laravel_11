@@ -20,7 +20,7 @@
             padding: 10px;
             text-align: left;
         }
-        
+
         th{
             background-color: #f2f2f2;
         }

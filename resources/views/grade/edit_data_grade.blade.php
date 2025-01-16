@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="flex justify-end space-x-2 mt-6">
-                    <a href="{{ url('admin/grade') }}"
+                    <a href="{{ url('admin/grade_student') }}"
                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">
                         Cancel
                     </a>

@@ -31,7 +31,7 @@ class StudentController extends Controller
                     });
                 })
                 ->orderBy('created_at', 'desc')
-                ->get();
+                ->paginate(25);
 
             return view('admin.student_admin', [
                 'title' => 'Student Management',
@@ -41,7 +41,7 @@ class StudentController extends Controller
 
         return view('student', [
             'title' => 'Student',
-            'students' => Student::getGradeWithDepartment()->get()
+            'students' => Student::getGradeWithDepartment()->paginate(25)
         ]);
     }
 

@@ -101,10 +101,10 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
-                    @foreach ($students as $student)
+                    @foreach ($students as $index => $student)
                         <tr class="hover:bg-gray-50 transition-colors group">
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                {{$loop->iteration }}
+                                {{($students -> currentPage() -1) *$students->perPage() + $loop->iteration}}
                             </td>
                             <td class="px-6 py-4 text-sm font-medium text-gray-900">
                                 <div class="max-w-xs truncate">{{$student->name}}</div>
@@ -162,6 +162,17 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="px-6 py-4 border-t border-gray-100">
+        <div class="flex items-center justify-between">
+            <div class="text-sm text-gray-600">
+                Showing {{ $students->firstItem() ?? 0 }} to {{ $students->lastItem() ?? 0 }} of {{ $students->total() }} entries
+            </div>
+            <div>
+                {{ $students->appends(request()->query())->links() }}
+            </div>
         </div>
     </div>
 </x-admin-layout>

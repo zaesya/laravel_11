@@ -6,6 +6,7 @@ use App\Models\Student;
 use App\Models\Grade_student;
 use App\Models\Departmen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use function Laravel\Prompts\search;
 
@@ -40,18 +41,27 @@ class StudentController extends Controller
 
         return view('student', [
             'title' => 'Student',
-            'students' => Student::with(['grade_student', 'departmen'])->orderBy('created_at', 'desc')->get()
+            'students' => Student::getGradeWithDepartment()->get()
         ]);
     }
 
     public function addData()
-    {
-        return view('student.add_data', [
-            'title' => 'Add New Data Student',
-            'grade_students' => Grade_student::all(),
-            'departmens' => Departmen::all(),
-        ]);
-    }
+{
+    $grade_students = DB::table('grade_students')
+        ->select(
+            'grade_students.id',
+            'grade_students.name',
+            'departmens.name as departmen'
+        )
+        ->join('departmens', 'grade_students.departmen_id', '=', 'departmens.id')
+        ->orderBy('grade_students.name', 'asc')
+        ->get();
+
+    return view('student.add_data', [
+        'title' => 'Add New Data Student',
+        'grade_students' => $grade_students,
+    ]);
+}
 
     public function create(Request $request)
 {
@@ -74,17 +84,25 @@ class StudentController extends Controller
                     ->with('success', 'Student created successfully');
 }
 
-    public function edit($id)
-    {
-        $student = Student::findOrFail($id);
-        $student_grade = Grade_student::all();
+public function edit($id)
+{
+    $student = Student::findOrFail($id);
+    $grade_students = DB::table('grade_students')
+        ->select(
+            'grade_students.id',
+            'grade_students.name',
+            'departmens.name as departmen'
+        )
+        ->join('departmens', 'grade_students.departmen_id', '=', 'departmens.id')
+        ->orderBy('grade_students.name', 'asc')
+        ->get();
 
-        return view('student.edit_data', [
-            'title' => 'Edit Student',
-            'student' => $student,
-            'grade_students' => $student_grade,
-        ]);
-    }
+    return view('student.edit_data', [
+        'title' => 'Edit Student',
+        'student' => $student,
+        'grade_students' => $grade_students,
+    ]);
+}
 
     // Update method to handle the edit from form cuy
     public function update(Request $request, $id)

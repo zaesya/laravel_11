@@ -25,7 +25,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-xs uppercase font-medium mb-2" for="grade_student">
-                        Grade
+                        Grade & Department
                     </label>
                     <select id="grade_student"
                             name="grade_student_id"
@@ -33,7 +33,7 @@
                         <option value="">Select Grade</option>
                         @foreach($grade_students as $grade_student)
                             <option value="{{ $grade_student->id }}" {{ old('grade_student_id', $student->grade_student_id) == $grade_student->id ? 'selected' : '' }}>
-                                {{ $grade_student->name }}
+                                {{ $grade_student->name }} - {{ $grade_student->departmen }}
                             </option>
                         @endforeach
                     </select>

@@ -168,7 +168,7 @@
     <div class="px-6 py-4 border-t border-gray-100">
         <div class="flex items-center justify-between">
             <div class="text-sm text-gray-600">
-                Showing {{ $students->firstItem() ?? 0 }} to {{ $students->lastItem() ?? 0 }} of {{ $students->total() }} entries
+                Showing {{ $students->firstItem() ?? 0 }} to {{ $students->lastItem() ?? 0 }} of {{ $students->total() }} entries 
             </div>
             <div>
                 {{ $students->appends(request()->query())->links() }}

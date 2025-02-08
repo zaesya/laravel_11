@@ -3,51 +3,34 @@
         {{ $title }}
     </x-slot:title>
 
-    <style>
-        h2{
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    <h2 class="text-center font-bold mb-5 text-lg">DATA GRADE STUDENT</h2>
 
-        table{
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td{
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th{
-            background-color: #f2f2f2;
-        }
-
-    </style>
-    <h2>DATA GRADE STUDENT</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name GRADE</th>
-                <th>Name</th>
-                <th>Departmen ID</th>
-            </tr>
-        </thead>
-            <tbody>@foreach ( $grade_students as $grade_student)
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border-rounded border-gray-200 rounded-lg shadow-lg font-mono">
+            <thead class="bg-gradient-to-r from-blue-300 to-purple-400 text-white rounded-t-lg">
                 <tr>
-                    <td>{{$grade_student->id}}</td>
-                    <td>{{$grade_student->name}}</td>
-                    <td>@foreach ($grade_student->students as $student)
-                        <ul>
-                            <li>{{ $student->name }}</li>
-                        </ul>
-                    @endforeach</td>
-                    <td>{{$grade_student->departmen->name}}</td>
+                    <th class="py-3 px-5 text-left rounded-tl-lg">ID</th>
+                    <th class="py-3 px-5 text-left">Name GRADE</th>
+                    <th class="py-3 px-5 text-left">Name</th>
+                    <th class="py-3 px-5 text-left rounded-tr-lg">Departmen ID</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="rounded-b-lg">
+                @foreach ($grade_students as $grade_student)
+                    <tr class="bg-gray-50 hover:bg-blue-100 transition-colors duration-200">
+                        <td class="py-3 px-5 border-t">{{ $grade_student->id }}</td>
+                        <td class="py-3 px-5 border-t">{{ $grade_student->name }}</td>
+                        <td class="py-3 px-5 border-t">
+                            @foreach ($grade_student->students as $student)
+                                <ul>
+                                    <li>{{ $student->name }}</li>
+                                </ul>
+                            @endforeach
+                        </td>
+                        <td class="py-3 px-5 border-t">{{ $grade_student->departmen->name }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </x-layout>

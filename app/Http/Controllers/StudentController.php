@@ -41,7 +41,7 @@ class StudentController extends Controller
 
         return view('student', [
             'title' => 'Student',
-            'students' => Student::getGradeWithDepartment()->paginate(25)
+            'students' => Student::with(['grade_student', 'departmen'])->paginate(25)
         ]);
     }
 
